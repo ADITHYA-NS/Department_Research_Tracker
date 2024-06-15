@@ -123,7 +123,7 @@
   }
 
   .tabd{
-    background-color:maroon;
+    background-color:rgb(172, 20, 20);
     border-style: none;
     height: 30px;
     color: #f1f1f1;
@@ -148,6 +148,7 @@
   .tab-content {
     display: none;
     padding-left: 0.5%;
+    
   }
 
   .active-tab {
@@ -187,6 +188,21 @@
     height: 40vh;
   }
 
+  .tag_container {
+    background-color: rgb(172, 20, 20);
+    border-style: none;
+    text-align: center;
+    height: 70px;
+    color: #f1f1f1;
+    font-weight: 500;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    margin: 35px;
+  }
+  
 
 .credits-container{
   z-index: 1;
