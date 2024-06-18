@@ -1,3 +1,6 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
 name: Node.js CI
 
 on:
@@ -13,19 +16,17 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]  # Use '14.x' instead of specific patch version
+        node-version: [14.8.0]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/setup-node@v2  # Use setup-node@v2
+    - uses: actions/setup-node@v3 
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build
-      run: npm run build --if-present
-
-    - name: Test
-      run: npm test
+    - run: npm install
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
